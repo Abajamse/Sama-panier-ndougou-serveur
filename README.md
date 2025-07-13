@@ -1,16 +1,34 @@
-# Sama Panier Ndougou - Serveur
+# Sama Panier Ndougou – Serveur
 
-Ce dépôt contient le code backend (serveur) de l'application **Sama Panier Ndougou**, une plateforme de commande de produits frais, légumes, fruits, poissons, viandes et packs Ndougou, livrés à Dakar.
+Petit serveur Node.js Express pour générer des paniers de recettes automatiquement à partir d’un prompt texte (mafé, yassa, thiéb…).
+## Démarrage
 
-## 🚀 Fonctionnalités
-
-- Enregistrement des commandes clients via API
-- Connexion avec le frontend (site web ou application mobile)
-- Stockage temporaire des commandes
-- Intégration possible avec WhatsApp ou IA pour générer des packs intelligents
-
-## 📦 Installation
-
-1. Cloner le projet :
 ```bash
-git clone https://github.com/Abajamse/Sama-panier-ndougou-serveur.git
+npm install
+npm start
+```
+
+## Exemple
+
+```http
+POST /ia
+Content-Type: application/json
+
+{
+  "prompt": "Je veux cuisiner du yassa"
+}
+```
+
+Réponse :
+
+```json
+{
+  "pack": [
+    { "name": "Poulet", "qty": 1 },
+    { "name": "Oignons", "qty": 3 },
+    { "name": "Citron vert", "qty": 2 },
+    { "name": "Piment vert", "qty": 1 },
+    { "name": "Tomates", "qty": 2 }
+  ]
+}
+```
